@@ -1,0 +1,10 @@
+/.depend
+/u6fs
+*.o
+/output.xml
+/report.html
+/log.html
+__pycache__
+/tests/unit/unit-test-sector
+/tests/unit/unit-test-mount
+/tests/unit/unit-test-inode

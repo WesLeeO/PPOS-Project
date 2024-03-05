@@ -1,0 +1,4 @@
+inode 1 (DIR) len 16
+inode 2 (DIR) len 32
+inode 3 (FIL) len 18
+inode 4 (DIR) len 0

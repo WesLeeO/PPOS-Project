@@ -1,0 +1,14 @@
+
+Printing inode #3:
+**********FS INODE START**********
+i_mode: 32768
+i_nlink: 0
+i_uid: 0
+i_gid: 0
+i_size0: 0
+i_size1: 18
+size: 18
+**********FS INODE END************
+the first sector of data of which contains:
+Coucou le monde !
+----

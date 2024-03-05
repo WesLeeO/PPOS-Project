@@ -1,0 +1,32 @@
+- sector.c:  # NE PAS REMPLIR CETTE LIGNE
+    - bon includes:      0.5               # max 0.5,
+    - sector_read():         3.5             # max 3.5,
+- mount.c: # NE PAS REMPLIR CETTE LIGNE
+    - mountv6():                    6    # max 6, fclose (-1)
+    - umountv6():  2.5                     # max 2.5,
+- inode.c: # NE PAS REMPLIR CETTE LIGNE
+    - bon includes:           0.5          # max 0.5,
+    - inode_read():                8     # max 8,
+    - inode_scan_print():           5.5    # max 5.5,
+    - inode_findsector():              5 # max 5,
+- u6fs.c: # NE PAS REMPLIR CETTE LIGNE
+    - ajout usage:               2.5      # max 2.5,
+    - ajout commande inode:       1.5      # max 1.5,
+    - ajout commande cat1:       2.5       # max 2.5,
+    - ajout commande shafiles:    1.5      # max 1.5,
+    - ajout commande tree:           1.5   # max 1.5,
+- u6fs_utils.c: # NE PAS REMPLIR CETTE LIGNE
+    - utils_print_inode():          2.5    # max 2.5,
+    - utils_cat_first_sector():     4    # max 5, retour de utils_print_inode (-1)
+    - utils_print_shafile():       4     # max 5, ligne 138: si la condition est vraie, length sera UTILS_HASHED_LENGTH + SECTOR_SIZE (-1)
+    - utils_print_sha_allfiles():   2.5    # max 2.5,
+- filev6.c: # NE PAS REMPLIR CETTE LIGNE
+    - filev6_open():              2.25      # max 2.5, SEEK_SET n'est pas forcément garantie d'être 0 (`man stdio.h`) (-0.25)
+    - filev6_readblock():           5    # max 5,
+- direntv6.c: # NE PAS REMPLIR CETTE LIGNE
+    - direntv6_opendir():         2.5      # max 2.5,
+    - direntv6_readdir():        4       # max 5, copie inutile dans new_name (-1)
+    - direntv6_dirlookup():       11.5      # max 12.5, ligne 188: prefix leaked (-1)
+    - direntv6_print_tree():      6.5      # max 7.5, ligne 121: leak de name (-1)
+- style:                             0   # max 2, min -2, (normal = 0),
+- bonus/malus:                 0       # max 5, min -5, (normal = 0),

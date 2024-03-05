@@ -1,0 +1,12 @@
+
+Printing inode #3:
+**********FS INODE START**********
+i_mode: 49152
+i_nlink: 1
+i_uid: 0
+i_gid: 0
+i_size0: 0
+i_size1: 656
+size: 656
+**********FS INODE END************
+which is a directory.

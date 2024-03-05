@@ -1,0 +1,15 @@
+**********FS SUPERBLOCK START**********
+s_isize             : 32
+s_fsize             : 1024
+s_fbmsize           : 0
+s_ibmsize           : 0
+s_inode_start       : 2
+s_block_start       : 34
+s_fbm_start         : 0
+s_ibm_start         : 0
+s_flock             : 0
+s_ilock             : 0
+s_fmod              : 0
+s_ronly             : 0
+s_time              : [0] 0
+**********FS SUPERBLOCK END**********

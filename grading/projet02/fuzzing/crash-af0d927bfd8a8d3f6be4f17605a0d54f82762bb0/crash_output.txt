@@ -1,0 +1,27 @@
+/home/ryang/pps23-fuzz-corpus/working/dedup-crashes/crash-af0d927bfd8a8d3f6be4f17605a0d54f82762bb0
+/home/ryang/pps23-fuzz-corpus/projects/pps23-projet-we-el/./done/direntv6.c:54:29: runtime error: implicit conversion from type 'int' of value -117 (32-bit, signed) to type 'unsigned long' changed the value to 18446744073709551499 (64-bit, unsigned)
+SUMMARY: UndefinedBehaviorSanitizer: undefined-behavior /home/ryang/pps23-fuzz-corpus/projects/pps23-projet-we-el/./done/direntv6.c:54:29 in 
+/home/ryang/pps23-fuzz-corpus/projects/pps23-projet-we-el/./done/direntv6.c:54:29: runtime error: implicit conversion from type 'unsigned long' of value 1152921504606846968 (64-bit, unsigned) to type 'int' changed the value to -8 (32-bit, signed)
+SUMMARY: UndefinedBehaviorSanitizer: undefined-behavior /home/ryang/pps23-fuzz-corpus/projects/pps23-projet-we-el/./done/direntv6.c:54:29 in 
+
+=================================================================
+==4168854==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 15 byte(s) in 1 object(s) allocated from:
+    #0 0x522b82 in __interceptor_calloc /local/mnt/workspace/bcain_clang_bcain-ubuntu_23113/llvm/utils/release/final/llvm.src/projects/compiler-rt/lib/asan/asan_malloc_linux.cc:154:3
+    #1 0x562774 in direntv6_print_tree /home/ryang/pps23-fuzz-corpus/projects/pps23-projet-we-el/./done/direntv6.c:104:18
+    #2 0x56c0b0 in u6fs_do_one_cmd /home/ryang/pps23-fuzz-corpus/projects/pps23-projet-we-el/./done/u6fs.c:75:17
+    #3 0x5597f8 in LLVMFuzzerTestOneInput /home/ryang/pps23-fuzz-corpus/src/fuzz-target.c:103:7
+    #4 0x45cd91 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /local/mnt/workspace/bcain_clang_bcain-ubuntu_23113/llvm/utils/release/final/llvm.src/projects/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:553:15
+    #5 0x447691 in fuzzer::RunOneTest(fuzzer::Fuzzer*, char const*, unsigned long) /local/mnt/workspace/bcain_clang_bcain-ubuntu_23113/llvm/utils/release/final/llvm.src/projects/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:292:6
+    #6 0x44d25e in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /local/mnt/workspace/bcain_clang_bcain-ubuntu_23113/llvm/utils/release/final/llvm.src/projects/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:775:9
+    #7 0x4767c2 in main /local/mnt/workspace/bcain_clang_bcain-ubuntu_23113/llvm/utils/release/final/llvm.src/projects/compiler-rt/lib/fuzzer/FuzzerMain.cpp:19:10
+    #8 0x7f98c3854d8f  (/lib/x86_64-linux-gnu/libc.so.6+0x29d8f)
+
+DEDUP_TOKEN: __interceptor_calloc--direntv6_print_tree--u6fs_do_one_cmd--LLVMFuzzerTestOneInput--fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long)--fuzzer::RunOneTest(fuzzer::Fuzzer*, char const*, unsigned long)--fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long))--main--
+SUMMARY: AddressSanitizer: 15 byte(s) leaked in 1 allocation(s).
+
+INFO: a leak has been found in the initial corpus.
+
+INFO: to ignore leaks on libFuzzer side use -detect_leaks=0.
+

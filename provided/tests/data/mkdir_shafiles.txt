@@ -1,0 +1,5 @@
+Listing inodes SHA
+SHA inode 1: DIR
+SHA inode 2: DIR
+SHA inode 3: 338fc4bb0d037f3747396a4c852d2a9d8b545d622c6c744c670cf95f715731d3
+SHA inode 4: DIR

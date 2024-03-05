@@ -1,0 +1,14 @@
+
+Printing inode #4:
+**********FS INODE START**********
+i_mode: 33216
+i_nlink: 0
+i_uid: 0
+i_gid: 0
+i_size0: 0
+i_size1: 13
+size: 13
+**********FS INODE END************
+the first sector of data of which contains:
+Hello world!
+----

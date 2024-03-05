@@ -1,0 +1,15 @@
+- sector.c:  # NE PAS REMPLIR CETTE LIGNE
+    - bon includes:      0.5               # max 0.5,
+    - sector_read():         3           # max 3.5, retour de fseek (-0.5)
+- mount.c: # NE PAS REMPLIR CETTE LIGNE
+    - mountv6():                    5    # max 6, fclose (-1)
+    - umountv6():  1.5                     # max 2.5, reset (-1)
+- inode.c: # NE PAS REMPLIR CETTE LIGNE
+    - bon includes:           0.5          # max 0.5,
+    - inode_read():                8     # max 8,
+    - inode_scan_print():           5    # max 5.5, copy-paste du print (-0.5)
+- u6fs.c: # NE PAS REMPLIR CETTE LIGNE
+    - ajout usage:               1       # max 1,
+    - ajout commande inode:       1.5      # max 1.5,
+- style:                             0   # max 2, min -2,
+- bonus/malus:                   -1.25       # max 5, min -5, init avec {} pas standard (-0.25), pas anonyme (-1)

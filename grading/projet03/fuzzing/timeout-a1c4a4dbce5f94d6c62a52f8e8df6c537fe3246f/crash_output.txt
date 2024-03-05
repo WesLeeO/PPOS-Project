@@ -1,0 +1,28 @@
+/home/ryang/pps23-fuzz-corpus/working/dedup-crashes/timeout-a1c4a4dbce5f94d6c62a52f8e8df6c537fe3246f
+/home/ryang/pps23-fuzz-corpus/projects/pps23-projet-we-el/./done/mount.c:55:45: runtime error: implicit conversion from type 'size_t' (aka 'unsigned long') of value 65536 (64-bit, unsigned) to type 'uint16_t' (aka 'unsigned short') changed the value to 0 (16-bit, unsigned)
+SUMMARY: UndefinedBehaviorSanitizer: undefined-behavior /home/ryang/pps23-fuzz-corpus/projects/pps23-projet-we-el/./done/mount.c:55:45 in 
+ALARM: working on the last Unit for 1 seconds
+       and the timeout value is 1 (use -timeout=N to change)
+==2988403== ERROR: libFuzzer: timeout after 1 seconds
+    #0 0x52b2c1 in __sanitizer_print_stack_trace /local/mnt/workspace/bcain_clang_bcain-ubuntu_23113/llvm/utils/release/final/llvm.src/projects/compiler-rt/lib/asan/asan_stack.cc:86:3
+    #1 0x476098 in fuzzer::PrintStackTrace() /local/mnt/workspace/bcain_clang_bcain-ubuntu_23113/llvm/utils/release/final/llvm.src/projects/compiler-rt/lib/fuzzer/FuzzerUtil.cpp:205:5
+    #2 0x45b789 in fuzzer::Fuzzer::AlarmCallback() /local/mnt/workspace/bcain_clang_bcain-ubuntu_23113/llvm/utils/release/final/llvm.src/projects/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:300:5
+    #3 0x7fbb3acf251f  (/lib/x86_64-linux-gnu/libc.so.6+0x4251f)
+    #4 0x7fbb3adc49cb in __read (/lib/x86_64-linux-gnu/libc.so.6+0x1149cb)
+    #5 0x7fbb3ad3abd8 in _IO_file_seekoff (/lib/x86_64-linux-gnu/libc.so.6+0x8abd8)
+    #6 0x7fbb3ad379c2 in fseek (/lib/x86_64-linux-gnu/libc.so.6+0x879c2)
+    #7 0x5713bd in sector_read /home/ryang/pps23-fuzz-corpus/projects/pps23-projet-we-el/./done/sector.c:26:19
+    #8 0x56a2cf in inode_read /home/ryang/pps23-fuzz-corpus/projects/pps23-projet-we-el/./done/inode.c:56:19
+    #9 0x56fe23 in mountv6 /home/ryang/pps23-fuzz-corpus/projects/pps23-projet-we-el/./done/mount.c:55:31
+    #10 0x571ce4 in u6fs_do_one_cmd /home/ryang/pps23-fuzz-corpus/projects/pps23-projet-we-el/./done/u6fs.c:59:17
+    #11 0x5597f8 in LLVMFuzzerTestOneInput /home/ryang/pps23-fuzz-corpus/src/fuzz-target.c:103:7
+    #12 0x45cd91 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /local/mnt/workspace/bcain_clang_bcain-ubuntu_23113/llvm/utils/release/final/llvm.src/projects/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:553:15
+    #13 0x447691 in fuzzer::RunOneTest(fuzzer::Fuzzer*, char const*, unsigned long) /local/mnt/workspace/bcain_clang_bcain-ubuntu_23113/llvm/utils/release/final/llvm.src/projects/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:292:6
+    #14 0x44d25e in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /local/mnt/workspace/bcain_clang_bcain-ubuntu_23113/llvm/utils/release/final/llvm.src/projects/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:775:9
+    #15 0x4767c2 in main /local/mnt/workspace/bcain_clang_bcain-ubuntu_23113/llvm/utils/release/final/llvm.src/projects/compiler-rt/lib/fuzzer/FuzzerMain.cpp:19:10
+    #16 0x7fbb3acd9d8f  (/lib/x86_64-linux-gnu/libc.so.6+0x29d8f)
+    #17 0x7fbb3acd9e3f in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x29e3f)
+    #18 0x4214e4 in _start (/home/ryang/pps23-fuzz-corpus/working/build/pps23-projet-we-el/fuzz-target+0x4214e4)
+
+DEDUP_TOKEN: __sanitizer_print_stack_trace--fuzzer::PrintStackTrace()--fuzzer::Fuzzer::AlarmCallback()----__read--_IO_file_seekoff--fseek--sector_read--inode_read--mountv6--u6fs_do_one_cmd--LLVMFuzzerTestOneInput--fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long)--fuzzer::RunOneTest(fuzzer::Fuzzer*, char const*, unsigned long)--fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long))--main----__libc_start_main--_start
+SUMMARY: libFuzzer: timeout

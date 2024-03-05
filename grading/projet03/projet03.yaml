@@ -1,0 +1,41 @@
+- sector.c:  # NE PAS REMPLIR CETTE LIGNE
+    - bon includes:      0.5               # max 0.5,
+    - sector_read():         3.5             # max 3.5,
+- mount.c: # NE PAS REMPLIR CETTE LIGNE
+    - mountv6():                    9    # max 10, leak de u->f et bitmaps si une bitmap fail (-1)
+    - umountv6():              5         # max 5,
+    - fill_bms():               15        # max 15,
+- inode.c: # NE PAS REMPLIR CETTE LIGNE
+    - bon includes:           0.5          # max 0.5,
+    - inode_read():                8     # max 8,
+    - inode_scan_print():           5.5    # max 5.5,
+    - inode_findsector():              5 # max 5,
+- u6fs.c: # NE PAS REMPLIR CETTE LIGNE
+    - ajout usage:               3.5      # max 3.5,
+    - ajout commande inode:       1.5      # max 1.5,
+    - ajout commande cat1:       2.5       # max 2.5,
+    - ajout commande shafiles:    1.5      # max 1.5,
+    - ajout commande tree:           1.5   # max 1.5,
+    - ajout commande fuse:        1.5      # max 1.5,
+    - ajout commande bm:             1.5   # max 1.5,
+- u6fs_utils.c: # NE PAS REMPLIR CETTE LIGNE
+    - utils_print_inode():          2.5    # max 2.5,
+    - utils_cat_first_sector():     5    # max 5,
+    - utils_print_shafile():       5     # max 5,
+    - utils_print_sha_allfiles():   2.5    # max 2.5,
+    - print_bitmaps():              2.5    # max 2.5,
+- filev6.c: # NE PAS REMPLIR CETTE LIGNE
+    - filev6_open():              2.5      # max 2.5,
+    - filev6_readblock():           5    # max 5,
+    - filev6_lseek():               2    # max 2.5, il faudrait merge les deux derniers ifs (-0.5)
+- direntv6.c: # NE PAS REMPLIR CETTE LIGNE
+    - direntv6_opendir():         2.5      # max 2.5,
+    - direntv6_readdir():        5       # max 5,
+    - direntv6_dirlookup():       12.5      # max 12.5,
+    - direntv6_print_tree():      7.5      # max 7.5,
+- u6fs_fuse.c: # NE PAS REMPLIR CETTE LIGNE
+    - fs_getattr():                6.5     # max 6.5,
+    - fs_readdir():                4     # max 5, retour de filler (-1)
+    - fs_read():                  9      # max 10, strncpy au lieu de memcpy (-1)
+- style:                             0   # max 2, min -2, (normal = 0),
+- bonus/malus:                 0       # max 5, min -5, (normal = 0),
